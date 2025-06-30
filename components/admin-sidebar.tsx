@@ -29,6 +29,7 @@ import {
   Settings,
   Shield,
   LogOut,
+  TrendingUp,
 } from "lucide-react"
 
 const menuItems = [
@@ -38,17 +39,22 @@ const menuItems = [
     href: "/admin",
   },
   {
-    title: "Patient Management",
+    title: "Patients",
     icon: Users,
     href: "/admin/patients",
   },
   {
-    title: "Doctor Management",
+    title: "Patient Tracking",
+    icon: TrendingUp,
+    href: "/admin/patient-tracking",
+  },
+  {
+    title: "Doctors",
     icon: UserCheck,
     href: "/admin/doctors",
   },
   {
-    title: "Staff Management",
+    title: "Staff",
     icon: Users,
     href: "/admin/staff",
   },
@@ -68,17 +74,17 @@ const menuItems = [
     href: "/admin/inventory",
   },
   {
-    title: "Billing & Finance",
+    title: "Billing",
     icon: CreditCard,
     href: "/admin/billing",
   },
   {
-    title: "Reports & Analytics",
+    title: "Reports",
     icon: BarChart3,
     href: "/admin/reports",
   },
   {
-    title: "System Settings",
+    title: "Settings",
     icon: Settings,
     href: "/admin/settings",
   },
@@ -109,9 +115,9 @@ export function AdminSidebar() {
               {menuItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild className={cn(pathname === item.href && "bg-blue-50 text-blue-700")}>
-                    <Link href={item.href}>
-                      <item.icon className="h-4 w-4" />
-                      <span>{item.title}</span>
+                    <Link href={item.href} className="flex items-center space-x-2">
+                      <item.icon className="h-4 w-4 flex-shrink-0" />
+                      <span className="truncate">{item.title}</span>
                     </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -125,8 +131,8 @@ export function AdminSidebar() {
         <div className="p-2">
           <Link href="/">
             <Button variant="outline" className="w-full justify-start bg-transparent">
-              <LogOut className="h-4 w-4 mr-2" />
-              <span className="group-data-[collapsible=icon]:hidden">Logout</span>
+              <LogOut className="h-4 w-4 mr-2 flex-shrink-0" />
+              <span className="group-data-[collapsible=icon]:hidden truncate">Logout</span>
             </Button>
           </Link>
         </div>
